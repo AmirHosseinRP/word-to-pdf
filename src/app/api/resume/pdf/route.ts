@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  if (!url || !cloudConvertApiKey || !cloudConvertBaseUrl) {
+  if (!cloudConvertApiKey || !cloudConvertBaseUrl) {
     return ServerException({
       status: 500,
       codeOffset: 0,
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const docxBlob = await fetch(url).then(res => res.blob());
+    const docxBlob = await fetch(link).then(res => res.blob());
     const docxFile = new File([docxBlob], "google-doc.docx", {
       type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     });
