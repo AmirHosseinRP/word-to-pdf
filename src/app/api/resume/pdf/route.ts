@@ -20,8 +20,6 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  console.log(clientId, process.env.RP_WHITE_LIST);
-
   if (clientId !== process.env.RP_WHITE_LIST) {
     return ServerException({
       status: 403,
